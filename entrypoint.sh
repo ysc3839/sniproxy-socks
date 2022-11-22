@@ -3,7 +3,7 @@
 cd /
 
 [ "$1" != "-f" -a \( -n "${WSLENV+x}" -o -n "${WSL_DISTRO_NAME+x}" \) ] && {
-  "$0" -f </dev/null &>/dev/null &
+  nohup "$0" -f </dev/null &>/dev/null &
   exit
 }
 
