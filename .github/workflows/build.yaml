@@ -21,7 +21,7 @@ jobs:
         continue-on-error: true
       - run: |
           CONTAINER=$(docker create $DOCKER_IMAGE)
-          docker export $CONTAINER | gzip -9 - > $ROOTFS_FILE
+          docker export $CONTAINER | tar --delete .dockerenv | gzip -9 - > $ROOTFS_FILE
           docker rm $CONTAINER
       - uses: actions/upload-artifact@v3
         with:
